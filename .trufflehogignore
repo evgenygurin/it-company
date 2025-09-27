@@ -1,0 +1,7 @@
+# Ignore dependency lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore node_modules directory
+node_modules
