@@ -15,10 +15,11 @@
     "find:todos": "rg 'TODO|FIXME|HACK' --type ts --type tsx",
     "find:any": "rg 'any' --type ts | wc -l",
     "ast:exports": "ast-grep --pattern 'export default $$$'",
-    "ast:classnames": "ast-grep --pattern 'className=\"$$$\" --replace 'className={cn(\"$$$\")}'",
+    "ast:classnames": "ast-grep --pattern 'className=\"$$$\"' --replace 'className={cn(\"$$$\")}'",
     "config:deps": "jq '.dependencies | keys[]' package.json",
     "config:scripts": "jq '.scripts' package.json",
-    "ci:workflows": "yq '.jobs.*.steps[].name' .github/workflows/*.yml"
+    "ci:workflows": "yq '.jobs.*.steps[].name' .github/workflows/*.yml",
+    "prepare": "husky"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^0.0.48",
@@ -158,5 +159,11 @@
     "vite": "^5.4.1",
     "vitest": "^2.1.1",
     "webpack-bundle-analyzer": "^4.10.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
   }
 }
