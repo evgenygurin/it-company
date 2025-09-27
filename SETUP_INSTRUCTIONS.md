@@ -3,6 +3,7 @@
 ## 📋 Краткий обзор ситуации
 
 ✅ **Проект полностью готов**:
+
 - Next.js 15 с современной архитектурой
 - 20 GitHub issues для CodeGen.com автоматизации
 - UI компоненты и система тем
@@ -10,8 +11,9 @@
 - Документация и руководства
 
 ❌ **Проблемы с доступом**:
+
 - GitHub token не имеет достаточных прав для push
-- Репозиторий https://github.com/evgenygurin/it-company пустой
+- Репозиторий <https://github.com/evgenygurin/it-company> пустой
 - Нужно настроить права доступа
 
 ## 🔧 Шаги для решения
@@ -19,6 +21,7 @@
 ### 1. Решение проблем с GitHub
 
 #### Вариант A: Обновить права токена
+
 1. Перейти в GitHub Settings → Developer settings → Personal access tokens
 2. Создать новый токен с правами:
    - `repo` (Full control of private repositories)
@@ -26,6 +29,7 @@
    - `read:repo` (Read access to code)
 
 #### Вариант B: Использовать SSH ключ
+
 ```bash
 # Сменить remote на SSH
 git remote set-url origin git@github.com:evgenygurin/it-company.git
@@ -49,11 +53,13 @@ git push -u origin main
 ### 3. Настроить CodeGen.com интеграцию
 
 #### Установить GitHub App
-1. Перейти на https://github.com/apps/codegen-sh
+
+1. Перейти на <https://github.com/apps/codegen-sh>
 2. Установить CodeGen.com GitHub App
 3. Предоставить доступ к репозиторию it-company
 
 #### Настроить переменные окружения
+
 В настройках репозитория GitHub добавить Secrets:
 
 ```text
