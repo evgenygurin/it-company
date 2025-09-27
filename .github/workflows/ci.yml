@@ -43,12 +43,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Install CLI tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y fd-find ripgrep jq
-          echo "CLI tools installed"
+          sudo apt-get install -y fd-find ripgrep jq yq
+          echo "CLI tools installed successfully"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -61,6 +68,7 @@ jobs:
 
       - name: Test CLI integration
         run: |
+          echo "Testing package.json scripts..."
           npm run config:deps
           npm run config:scripts
-          echo "CLI integrations working"
+          echo "✅ CLI tools and scripts working correctly"
