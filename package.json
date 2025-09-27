@@ -20,6 +20,8 @@
     "ast:classnames": "ast-grep --pattern 'className=\"$$$\"' --replace 'className={cn(\"$$$\")}'",
     "config:deps": "jq '.dependencies | keys[]' package.json",
     "config:scripts": "jq '.scripts' package.json",
+    "config:verify": "find . -name \"*.config.*\" -type f | grep -E '\\.(js|mjs|ts|json)$' | head -10",
+    "config:strict": "rg \"strict.*true\" tsconfig.json",
     "ci:workflows": "if command -v yq >/dev/null 2>&1; then yq '.jobs.*.steps[].name' .github/workflows/*.yml; else echo 'yq not available, skipping workflow analysis'; fi",
     "prepare": "husky"
   },
